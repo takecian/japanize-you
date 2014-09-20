@@ -13,7 +13,7 @@ listen "127.0.0.1:3000"
 pid SHARED_PATH + "/tmp/pids/unicorn.pid"
 
 # ワーカーの数を指定する
-worker_processes 7
+worker_processes 3
 
 # リクエストのタイムアウト秒を指定する
 timeout 15
