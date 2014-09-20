@@ -19,7 +19,7 @@ end
   names.each do |name|
     name[:katakana].gsub!(/（.*）/, '')
 
-    p name[:english] + ', ' + name[:katakana] + ', ' + katakana_to_hiragana name[:katakana]
+    p name[:english] + ', ' + name[:katakana] + ', ' + katakana_to_hiragana(name[:katakana])
 
     Name.create(name: name[:english], katakana: name[:katakana], hiragana: katakana_to_hiragana(name[:katakana]))
   end
