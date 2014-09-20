@@ -21,7 +21,7 @@ require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/rbenv'
 set :rbenv_type, :user
-set :rbenv_ruby, '2.1.1'
+set :rbenv_ruby, '2.1.0'
 require 'capistrano/bundler'
 require 'capistrano3/unicorn' # unicornを使っている場合のみ
 
