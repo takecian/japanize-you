@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title naruhodo
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .span12
+      %p.notice= notice
+      %p.alert= alert
+    .span12
+      .col-xs-1
+      .col-xs-10
+        = yield
+      .col-xs-1

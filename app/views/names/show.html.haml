@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @name.name
+%p
+  %b Hiragana:
+  = @name.hiragana
+%p
+  %b Katakana:
+  = @name.katakana
+
+= link_to 'Edit', edit_name_path(@name)
+\|
+= link_to 'Back', names_path

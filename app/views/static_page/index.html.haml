@@ -1,0 +1,10 @@
+%h1 StaticPage#index
+
+%h2
+  ユーザー検索
+= form_tag :search_names, method: :get, remote: true do
+  %p
+    = text_field_tag "q", params[:q]
+  = submit_tag "検索"
+
+#name
