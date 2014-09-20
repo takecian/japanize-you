@@ -4,9 +4,6 @@ require 'capistrano/setup'
 # Includes default deployment tasks
 require 'capistrano/deploy'
 
-set :rbenv_type, :user
-set :rbenv_ruby, '2.1.0'
-
 # Includes tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
@@ -15,17 +12,18 @@ set :rbenv_ruby, '2.1.0'
 #   https://github.com/capistrano/rbenv
 #   https://github.com/capistrano/chruby
 #   https://github.com/capistrano/bundler
-#   https://github.com/capistrano/rails/tree/master/assets
-#   https://github.com/capistrano/rails/tree/master/migrations
+#   https://github.com/capistrano/rails
 #
-# require 'capistrano/rvm'
-require 'capistrano/rbenv'
-# require 'capistrano/chruby'
-require 'capistrano/bundler'
+require 'capistrano/setup'
+require 'capistrano/deploy'
+require 'capistrano/rails'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
-#require 'capistrano3/unicorn'
-require 'whenever/capistrano'
+require 'capistrano/rbenv'
+set :rbenv_type, :user
+set :rbenv_ruby, '2.1.1'
+require 'capistrano/bundler'
+require 'capistrano3/unicorn' # unicornを使っている場合のみ
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
-Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
