@@ -63,6 +63,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'rest-client'
 
+gem 'therubyracer'
+
 # Use Haml
 gem 'haml-rails'
 #gem 'erb2haml'
