@@ -11,7 +11,7 @@ def katakana_to_hiragana katakana
   katakana.tr('ァ-ン','ぁ-ん')
 end
 
-%w(https://www.kimonolabs.com/api/5ikszv5s?apikey=jCdRkRK3EYSQylkriV3zcQyIFbrCvE2s https://www.kimonolabs.com/api/8ir1cw98?apikey=jCdRkRK3EYSQylkriV3zcQyIFbrCvE2s).each do |url|
+%w(https://www.kimonolabs.com/api/5ikszv5s?apikey=jCdRkRK3EYSQylkriV3zcQyIFbrCvE2s https://www.kimonolabs.com/api/8ir1cw98?apikey=jCdRkRK3EYSQylkriV3zcQyIFbrCvE2s https://www.kimonolabs.com/api/d9gam596?apikey=jCdRkRK3EYSQylkriV3zcQyIFbrCvE2s).each do |url|
   p url
   response = RestClient.get url
   json = JSON.parse response, { symbolize_names: true }
