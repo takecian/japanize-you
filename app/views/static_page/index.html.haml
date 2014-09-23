@@ -1,10 +1,7 @@
-%h1 StaticPage#index
-
-%h2
-  ユーザー検索
-= form_tag :search_names, method: :get, remote: true do
-  %p
-    = text_field_tag "q", params[:q]
-  = submit_tag "検索"
+%h1
+  Input your name
+= simple_form_for :search_names, { url: search_names_path, method: :get, remote: true } do |f|
+  = f.input :name, :url => autocomplete_name_name_names_path, :as => :autocomplete, label: false
+  = f.button :submit, 'toNihongo'
 
 #name

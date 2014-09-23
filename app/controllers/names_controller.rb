@@ -1,5 +1,6 @@
 class NamesController < ApplicationController
   before_action :set_name, only: [:show, :edit, :update, :destroy]
+  autocomplete :name, :name, :full => true
 
   # GET /names
   # GET /names.json
@@ -8,7 +9,7 @@ class NamesController < ApplicationController
   end
 
   def search
-    @name = Name.where(name: params[:q]).first
+    @name = Name.where(name: params[:search_names][:name]).first
     respond_to do |format|
       if @name != nil
         format.html { render "show" }
