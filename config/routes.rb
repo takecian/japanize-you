@@ -4,8 +4,9 @@ JapanIsCool::Application.routes.draw do
   resources :names do
     collection do
       get :search
+      get :autocomplete_name_name
+      get :image
     end
-    get :autocomplete_name_name, :on => :collection
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,7 +1,7 @@
 class NamesController < ApplicationController
   before_action :set_name, only: [:show, :edit, :update, :destroy]
   autocomplete :name, :name, :full => true
-
+  include Magick
   # GET /names
   # GET /names.json
   def index
@@ -21,6 +21,26 @@ class NamesController < ApplicationController
         format.js
       end
     end
+  end
+
+  def image
+    image = Magick::Image.new(640, 480) { self.background_color = "red" }
+    #image.background_color = 'red'
+    image.composite!(image, Magick::CenterGravity, Magick::OverCompositeOp)
+    image.format = 'png'
+    draw = Magick::Draw.new
+    draw.annotate(image, 0, 0, 50, 200 + 30, params[:name]) do
+      #self.font = 'Verdana-Bold'
+      self.font = 'ヒラギノ丸ゴ-Pro-W4'
+      self.fill = '#FFFFFF'
+      self.align = Magick::LeftAlign
+      self.stroke = 'transparent'
+      self.pointsize = 40
+      self.text_antialias = true
+      self.kerning = 1
+    end
+    #send_data(image.to_blob)
+    send_data(image.to_blob, :disposition => "inline", :type => "image/png")
   end
 
   # GET /names/1

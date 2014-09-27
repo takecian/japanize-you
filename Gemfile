@@ -73,6 +73,8 @@ gem 'rubocop', require: false
 gem 'simple_form'
 gem 'rails3-jquery-autocomplete', '~> 1.0.12'
 
+gem 'rmagick', :require => 'RMagick'
+
 # Use Haml
 gem 'haml-rails'
 #gem 'erb2haml'

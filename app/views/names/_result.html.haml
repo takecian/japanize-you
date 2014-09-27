@@ -1,4 +1,6 @@
 
+-#.row
+-#  %h1.jic-hiragana.center
+-#    = @name.hiragana
 .row
-  %h1.jic-hiragana.center
-    = @name.hiragana
+  = image_tag "/names/image?name=#{@name.hiragana}"
