@@ -24,14 +24,13 @@ class NamesController < ApplicationController
   end
 
   def image
-    image = Magick::Image.new(640, 480) { self.background_color = "red" }
+    image = Magick::Image.new(480, 480) { self.background_color = "red" }
     #image.background_color = 'red'
     image.composite!(image, Magick::CenterGravity, Magick::OverCompositeOp)
     image.format = 'png'
     draw = Magick::Draw.new
     draw.annotate(image, 0, 0, 50, 200 + 30, params[:name]) do
-      #self.font = 'Verdana-Bold'
-      self.font = 'ヒラギノ丸ゴ-Pro-W4'
+      self.font = "#{Rails.root}/lib/assets/NotoSansCJKjp-Regular.otf"
       self.fill = '#FFFFFF'
       self.align = Magick::LeftAlign
       self.stroke = 'transparent'
