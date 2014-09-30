@@ -28,9 +28,13 @@ group :development do
   gem 'rails-erd', github: 'paulwittmann/rails-erd', branch: 'mavericks'
 end
 group :production, :staging do
-  gem 'mysql2'
-#Use unicorn as the app server
-  gem 'unicorn'
+  # for AWS
+  #gem 'mysql2'
+  #gem 'unicorn'
+
+  # for heroku
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Twitter bootstrap
