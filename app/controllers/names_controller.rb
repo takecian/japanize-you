@@ -24,21 +24,27 @@ class NamesController < ApplicationController
   end
 
   def image
-    image = Magick::Image.new(480, 480) { self.background_color = "red" }
-    #image.background_color = 'red'
-    image.composite!(image, Magick::CenterGravity, Magick::OverCompositeOp)
+    image_width = 480
+    image_height = 240
+
+    background_color = params[:background_color] ? '#' + params[:background_color] : 'blue'
+    font_color = params[:font_color] ? '#' + params[:font_color] : 'white'
+    name = params[:name]
+
+    image = Magick::Image.new(image_width, image_height) { self.background_color = background_color }
     image.format = 'png'
+
     draw = Magick::Draw.new
-    draw.annotate(image, 0, 0, 50, 200 + 30, params[:name]) do
+    draw.annotate(image, 0, 0, 0, 0, name) do
+      self.gravity = Magick::CenterGravity
       self.font = "#{Rails.root}/lib/assets/NotoSansCJKjp-Regular.otf"
-      self.fill = '#FFFFFF'
-      self.align = Magick::LeftAlign
+      self.fill = font_color
       self.stroke = 'transparent'
-      self.pointsize = 40
+      self.pointsize = (image_width - 20) / name.length
       self.text_antialias = true
       self.kerning = 1
     end
-    #send_data(image.to_blob)
+
     send_data(image.to_blob, :disposition => "inline", :type => "image/png")
   end
 
