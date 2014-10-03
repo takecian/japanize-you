@@ -24,8 +24,8 @@ class NamesController < ApplicationController
   end
 
   def image
-    image_width = 480
-    image_height = 240
+    image_width = 960
+    image_height = 480
 
     background_color = params[:background_color] ? '#' + params[:background_color] : 'blue'
     font_color = params[:font_color] ? '#' + params[:font_color] : 'white'
