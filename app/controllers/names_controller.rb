@@ -28,7 +28,7 @@ class NamesController < ApplicationController
     image_height = 480
 
     background_color = params[:background_color] ? '#' + params[:background_color] : 'Transparent'
-    font_color = params[:font_color] ? '#' + params[:font_color] : 'white'
+    font_color = params[:font_color] ? '#' + params[:font_color] : 'black'
     name = params[:name]
 
     image = Magick::Image.new(image_width, image_height) { self.background_color = background_color }
