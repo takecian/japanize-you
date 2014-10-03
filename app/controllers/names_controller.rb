@@ -27,7 +27,7 @@ class NamesController < ApplicationController
     image_width = 960
     image_height = 480
 
-    background_color = params[:background_color] ? '#' + params[:background_color] : 'blue'
+    background_color = params[:background_color] ? '#' + params[:background_color] : 'Transparent'
     font_color = params[:font_color] ? '#' + params[:font_color] : 'white'
     name = params[:name]
 
